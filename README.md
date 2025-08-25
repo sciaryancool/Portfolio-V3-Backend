@@ -1,4 +1,4 @@
-# Aryan's Portfolio (Next.js 14 + Tailwind + Prisma)
+# Aryan's Portfolio (Next.js + Tailwind + Prisma)
 
 Clean, aesthetic, and lightweight. Admin panel controls heading bar, version, skills, projects, and service plans.
 Auth: username/password with JWT cookie. Uses PostgreSQL via Prisma.

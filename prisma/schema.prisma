@@ -1,27 +1,30 @@
+// prisma/schema.prisma
+
 generator client {
   provider = "prisma-client-js"
 }
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id        String  @id @default(cuid())
-  username  String  @unique
-  password  String  // bcrypt hash
+  id        String   @id @default(cuid())
+  username  String   @unique
+  password  String
   createdAt DateTime @default(now())
 }
 
 model SiteConfig {
-  id            String @id @default("singleton")
-  customHeading String
-  version       String
-  github        String
-  x             String
-  youtube       String
-  linkedin      String
-  instagram     String
+  id            String  @id @default("singleton")
+  customHeading String  @default("")
+  version       String  @default("v1.0.0")
+  github        String?
+  x             String?
+  youtube       String?
+  linkedin      String?
+  instagram     String?
 }
 
 model Skill {
@@ -38,13 +41,6 @@ model Project {
 model ServicePlan {
   id       String @id @default(cuid())
   name     String @unique
-  features String // newline separated
-  note     String // e.g., "For prices contact ..."
-}
-model Project {
-  id          String  @id @default(cuid())
-  name        String  @unique
-  url         String
-  cover       String?   // <— new: cover image URL
-  description String?   // <— optional: short blurb
+  features String
+  note     String
 }

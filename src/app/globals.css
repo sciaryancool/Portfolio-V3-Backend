@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --border: 240 5.9% 90%;
+  --ring: 240 5% 64.9%;
+}
+.dark{
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --ring: 240 4.9% 83.9%;
+}
+
+html, body, :root { height: 100%; }
+body { background: hsl(var(--background)); color: hsl(var(--foreground)); }
+.container { @apply max-w-6xl mx-auto px-4; }
+
+.card { @apply rounded-2xl shadow-soft border border-border bg-white dark:bg-zinc-900; }
+.section-title { @apply text-2xl md:text-3xl font-semibold tracking-tight; }
+.muted { @apply text-sm opacity-80; }
+.btn { @apply inline-flex items-center justify-center rounded-2xl px-4 py-2 border border-border hover:opacity-90 transition; }
+.input { @apply w-full rounded-xl border border-border bg-transparent px-3 py-2; }
+.label { @apply text-sm opacity-80; }
+.nav-link { @apply opacity-80 hover:opacity-100 transition; }
+
+/* --- Skills glow card --- */
+.skill-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem; /* matches rounded-2xl vibe */
+  isolation: isolate; /* keep glow inside */
+}
+
+/* soft radial glow that fades in on hover */
+.skill-card::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(closest-side, rgba(99,102,241,0.18), transparent 60%); /* indigo glow */
+  transform: scale(0.75);
+  opacity: 0;
+  filter: blur(12px);
+  transition: transform .45s ease, opacity .45s ease;
+  z-index: -1;
+}
+
+.skill-card:hover::after {
+  transform: scale(1);
+  opacity: 1;
+}
+/* === Services cards === */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255,255,255,0.7),
+    rgba(255,255,255,0.55)
+  );
+}
+.dark .service-card {
+  background: linear-gradient(
+    to bottom right,
+    rgba(24,24,27,0.7),
+    rgba(24,24,27,0.55)
+  );
+}
+
+/* subtle radial glow on hover */
+.service-card::after {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  pointer-events: none;
+  transform: scale(.8);
+  opacity: 0;
+  filter: blur(18px);
+  transition: transform .45s ease, opacity .45s ease;
+  background: radial-gradient(300px circle at var(--x,50%) var(--y,50%), rgba(99,102,241,.12), transparent 60%);
+}
+.service-card:hover::after { transform: scale(1); opacity: 1; }
+
+/* clean bullet list */
+.service-list { list-style: none; margin: 0; padding: 0; }
+.service-item {
+  display: flex;
+  gap: .625rem;
+  align-items: flex-start;
+  padding: .5rem .625rem;
+  border-radius: .75rem;
+  border: 1px solid hsl(var(--border));
+  background: rgba(255,255,255,0.45);
+}
+.dark .service-item { background: rgba(24,24,27,0.45); }
+.service-dot {
+  margin-top: .25rem;
+  width: .55rem; height: .55rem; border-radius: 9999px;
+  background: currentColor; opacity: .6;
+}

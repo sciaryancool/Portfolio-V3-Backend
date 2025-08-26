@@ -1,4 +1,4 @@
-# Aryan's Portfolio (Next.js + Tailwind + Prisma)
+# My Portfolio V3 (Next.js + Tailwind + Prisma) Launching Soon!
 
 Clean, aesthetic, and lightweight. Admin panel controls heading bar, version, skills, projects, and service plans.
 Auth: username/password with JWT cookie. Uses PostgreSQL via Prisma.
@@ -19,15 +19,3 @@ npm run seed
 
 # 4) Dev
 npm run dev
-```
-
-### Admin
-- URL: `/admin`
-- Default username: `sciaryan_log`
-- Default password: `sciaryan_@5314`
-
-> ⚠️ Change `ADMIN_PASSWORD` and `JWT_SECRET` in production.
-
-### Deploy
-- Frontend & backend are one Next.js app; can run on Render.  
-- If you still want frontend on Hostinger: build static export won't include admin APIs. Prefer deploying the app to Render (free) with Postgres (free tier).

@@ -1,4 +1,4 @@
-# My Portfolio V3 (Next.js + Tailwind + Prisma) Launching Soon!
+# My Portfolio V3 (Next.js + Tailwind + Prisma) Launching Soon !
 
 Clean, aesthetic, and lightweight. Admin panel controls heading bar, version, skills, projects, and service plans.
 Auth: username/password with JWT cookie. Uses PostgreSQL via Prisma.
